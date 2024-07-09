@@ -15,9 +15,11 @@ project(Github_Actions_test_for_VSTSDK
 )
 
 set(SMTG_VSTGUI_ROOT "${vst3sdk_SOURCE_DIR}")
-
+message("Full path to module: ${CMAKE_CURRENT_SOURCE_DIR}") 
 add_subdirectory(${vst3sdk_SOURCE_DIR} ${PROJECT_BINARY_DIR}/vst3sdk)
+message("Full path to module: ${CMAKE_CURRENT_SOURCE_DIR}") 
 smtg_enable_vst3_sdk()
+message("Full path to module: ${CMAKE_CURRENT_SOURCE_DIR}") 
 
 smtg_add_vst3plugin(Github_Actions_test_for_VSTSDK
     source/version.h
