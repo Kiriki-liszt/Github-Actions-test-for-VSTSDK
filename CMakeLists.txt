@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.14.0)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.13 CACHE STRING "")
 
-set(vst3sdk_SOURCE_DIR "D:/a/Github-Actions-test-for-VSTSDK/Github-Actions-test-for-VSTSDK/vst3sdk")
+if(GITHUB_ACTIONS_FOLDER) 
+    set(vst3sdk_SOURCE_DIR GITHUB_ACTIONS_FOLDER)
+endif()
+
 if(NOT vst3sdk_SOURCE_DIR)
     message(FATAL_ERROR "Path to VST3 SDK is empty!")
 endif()
