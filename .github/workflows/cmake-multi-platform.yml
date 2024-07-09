@@ -38,7 +38,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: VSTSDK Repo
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
       with:
         repository: steinbergmedia/vst3sdk
         path: "./vst3sdk" 
