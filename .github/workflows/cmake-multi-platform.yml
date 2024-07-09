@@ -27,23 +27,17 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
-          - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
-          - os: ubuntu-latest
-            c_compiler: clang
-            cpp_compiler: clang++
         exclude:
           - os: windows-latest
             c_compiler: gcc
           - os: windows-latest
             c_compiler: clang
-          - os: ubuntu-latest
-            c_compiler: cl
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Base plugin Repo
+      uses: actions/checkout@v4
 
+    - name: VSTSDK Repo
     - uses: actions/checkout@v4
       with:
         repository: steinbergmedia/vst3sdk
@@ -82,3 +76,9 @@ jobs:
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest --build-config ${{ matrix.build_type }}
+
+    - name: Upload VST
+      uses: actions/upload-artifact@v4
+      with:
+        name: VST-artifact
+        path: ${{ steps.strings.outputs.build-output-dir }}/VST3/Release 
