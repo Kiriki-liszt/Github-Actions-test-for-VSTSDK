@@ -34,7 +34,9 @@ jobs:
     steps:
     - name: Base plugin Repo
       uses: actions/checkout@v4
-
+      with:
+        submodules: 'recursive'
+        
     - name: VSTSDK Repo
       uses: actions/checkout@v4
       with:
