@@ -3,6 +3,31 @@
 
 #define APSTUDIO_READONLY_SYMBOLS
 
+JSIF_editor.uidesc  		DATA "JSIF_editor.uidesc"
+
+orig_background.png			PNG "orig_background.png"
+orig_handle.png				PNG "orig_handle.png"
+orig_knob_red_.png			PNG "orig_knob_red_.png"
+orig_knob_green_.png		PNG "orig_knob_green_.png"
+orig_button_onoff.png		PNG "orig_button_onoff.png"
+orig_LED_OFF.png			PNG "orig_LED_OFF.png"
+orig_LED_ON.png				PNG "orig_LED_ON.png"
+orig_LED_FX_OFF.png			PNG "orig_LED_FX_OFF.png"
+orig_LED_FX_ON.png			PNG "orig_LED_FX_ON.png"
+orig_LED_cover.png			PNG "orig_LED_cover.png"
+
+twarch_background.png		PNG "twarch/twarch_background.png"
+twarch_btn_IN.png			PNG "twarch/twarch_btn_IN.png"
+twarch_btn_CLIP.png			PNG "twarch/twarch_btn_CLIP.png"
+twarch_btn_SPLIT.png		PNG "twarch/twarch_btn_SPLIT.png"
+twarch_handle.png			PNG "twarch/twarch_handle.png"
+twarch_meter_off.png		PNG "twarch/twarch_meter_off.png"
+twarch_meter_on.png			PNG "twarch/twarch_meter_on.png"
+twarch_meter_fx_on.png		PNG "twarch/twarch_meter_fx_on.png"
+twarch_knob_yellow_.png		PNG "twarch/twarch_knob_yellow_.png"
+twarch_knob_red_.png		PNG "twarch/twarch_knob_red_.png"
+
+
 /////////////////////////////////////////////////////////////////////////////
 // Version
 /////////////////////////////////////////////////////////////////////////////
