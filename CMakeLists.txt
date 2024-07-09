@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14.0)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.13 CACHE STRING "")
 
-if(GITHUB_ACTIONS_FOLDER) 
+if(GITHUB_ACTIONS) 
     set(vst3sdk_SOURCE_DIR ${CMAKE_SOURCE_DIR}/vstsdk)
 endif()
 
