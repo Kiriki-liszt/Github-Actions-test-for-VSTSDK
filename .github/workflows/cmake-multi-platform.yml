@@ -68,7 +68,10 @@ jobs:
         -S ${{ github.workspace }}
         -B ${{ steps.strings.outputs.build-output-dir }}
         -DSMTG_ENABLE_VSTGUI_SUPPORT=ON
-        -DSMTG_VST3_SDK_SOURCE_DIR_CLI="D:/a/Github-Actions-test-for-VSTSDK/Github-Actions-test-for-VSTSDK/vst3sdk" 
+        -DSMTG_VST3_SDK_SOURCE_DIR_CLI="D:/a/Github-Actions-test-for-VSTSDK/Github-Actions-test-for-VSTSDK/vst3sdk"
+        -DSMTG_ENABLE_VSTGUI_SUPPORT_CLI=ON
+        -DSMTG_ENABLE_VST3_PLUGIN_EXAMPLES=OFF
+        -DSMTG_ENABLE_VST3_HOSTING_EXAMPLES=OFF
 
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
