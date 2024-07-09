@@ -47,6 +47,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - uses: actions/checkout@v4
+      with:
+        repository: steinbergmedia/vst3sdk
+        ref: v3.7.9_build_61
+
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
