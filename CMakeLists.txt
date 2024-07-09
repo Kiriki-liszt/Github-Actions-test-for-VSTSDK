@@ -17,7 +17,9 @@ project(Github_Actions_test_for_VSTSDK
 set(SMTG_VSTGUI_ROOT "${vst3sdk_SOURCE_DIR}")
 message("PROJECT_BINARY_DIR : ${PROJECT_BINARY_DIR}")
 add_subdirectory(${vst3sdk_SOURCE_DIR} ${PROJECT_BINARY_DIR}/vst3sdk)
+message("PROJECT_BINARY_DIR : ${PROJECT_BINARY_DIR}")
 smtg_enable_vst3_sdk()
+message("PROJECT_BINARY_DIR : ${PROJECT_BINARY_DIR}")
 
 smtg_add_vst3plugin(Github_Actions_test_for_VSTSDK
     source/version.h
