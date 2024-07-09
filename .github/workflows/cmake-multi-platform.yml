@@ -60,8 +60,6 @@ jobs:
         -S ${{ github.workspace }}
         -B ${{ steps.strings.outputs.build-output-dir }}
         -DSMTG_ENABLE_VSTGUI_SUPPORT=ON
-        -DSMTG_VST3_SDK_SOURCE_DIR_CLI="D:/a/Github-Actions-test-for-VSTSDK/Github-Actions-test-for-VSTSDK/vst3sdk"
-        -DSMTG_ENABLE_VSTGUI_SUPPORT_CLI=ON
         -DSMTG_ENABLE_VST3_PLUGIN_EXAMPLES=OFF
         -DSMTG_ENABLE_VST3_HOSTING_EXAMPLES=OFF
 
@@ -79,4 +77,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: VST-artifact
-        path: ${{ steps.strings.outputs.build-output-dir }}/VST3/Release 
+        path: ${{ steps.strings.outputs.build-output-dir }}/VST3
