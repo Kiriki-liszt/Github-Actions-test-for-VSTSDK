@@ -38,7 +38,8 @@ jobs:
     - name: VSTSDK Repo
       uses: actions/checkout@v4
       with:
-        repository: steinbergmedia/vst3sdk
+        repository: Kiriki-liszt/vst3sdk
+        ref: 'v3.7.9_mod'
         path: "./vst3sdk" 
         submodules: 'recursive'
 
