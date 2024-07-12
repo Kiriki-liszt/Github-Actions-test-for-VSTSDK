@@ -42,7 +42,7 @@ jobs:
         -DGITHUB_ACTIONS=ON
 
     - name: Build
-      run: xcodebuild -configuration Release
+      run: xcodebuild -configuration ${{ env.build_type }}
       working-directory: ${{ github.workspace }}/${{ env.build-dir }} 
         
     - name: Upload VST
