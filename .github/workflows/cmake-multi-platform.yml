@@ -20,7 +20,7 @@ jobs:
       #
       # To add more build types (Release, Debug, RelWithDebInfo, etc.) customize the build_type list.
       matrix:
-        os: [windows-latest]
+        os: [windows-latest, macos-latest]
         build_type: [Release]
         c_compiler: [clang, cl]
         include:
@@ -32,18 +32,22 @@ jobs:
             c_compiler: clang
 
     steps:
-    - name: Base plugin Repo
+    - name: Base plugin Repo checkout
       uses: actions/checkout@v4
       with:
         submodules: 'recursive'
         
-    - name: VSTSDK Repo
+    - name: VSTSDK Repo checkout
       uses: actions/checkout@v4
       with:
         repository: Kiriki-liszt/vst3sdk
         ref: 'v3.7.9_mod'
         path: "./vst3sdk" 
         submodules: 'recursive'
+
+    - name: Install Dependencies
+      run: sudo apt-get install libx11-xcb-dev libxcb-util-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libfontconfig1-dev libcairo2-dev libgtkmm-3.0-dev libsqlite3-dev libxcb-keysyms1-dev
+      if: matrix.os == 'ubuntu-latest'
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
@@ -81,4 +85,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: VST-artifact
-        path: ${{ steps.strings.outputs.build-output-dir }}/VST3
+        path: build/VST3
