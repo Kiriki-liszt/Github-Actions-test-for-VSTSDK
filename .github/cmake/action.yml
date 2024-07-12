@@ -13,6 +13,7 @@ inputs:
     description: 'cmake build type'
     required: 'true'
     default: 'Debug'
+    
 runs:
   using: "composite"
   steps:
@@ -23,7 +24,14 @@ runs:
   - name: Configure CMake
     shell: bash
     working-directory: ${{inputs.build-dir}}
-    run: cmake -S "${{inputs.source-dir}}" -B "${{inputs.build-dir}}" -DCMAKE_BUILD_TYPE=${{inputs.build-type}}
+    run: cmake 
+        -S "${{inputs.source-dir}}" 
+        -B "${{inputs.build-dir}}" 
+        -DCMAKE_BUILD_TYPE=${{inputs.build-type}}         
+        -DSMTG_ENABLE_VSTGUI_SUPPORT=ON
+        -DSMTG_ENABLE_VST3_PLUGIN_EXAMPLES=OFF
+        -DSMTG_ENABLE_VST3_HOSTING_EXAMPLES=OFF
+        -DGITHUB_ACTIONS=ON
 
   - name: Build
     shell: bash
