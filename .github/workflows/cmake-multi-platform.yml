@@ -67,6 +67,7 @@ jobs:
     - name: Build - macOS
       if: matrix.os == 'macos-latest'
       run: xcodebuild
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
 
     - name: Build - else
       if: matrix.os != 'macos-latest'
