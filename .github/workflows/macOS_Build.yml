@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-10.15, macos-11.0]
+        os: [macos-latest]
 
     steps:
     - name: Base plugin Repo checkout
@@ -29,19 +29,24 @@ jobs:
         path: "./vst3sdk" 
         submodules: 'recursive'
 
-    - name: Install Dependencies
-      run: sudo apt-get install libx11-xcb-dev libxcb-util-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libfontconfig1-dev libcairo2-dev libgtkmm-3.0-dev libsqlite3-dev libxcb-keysyms1-dev
-      if: matrix.os == 'ubuntu-latest'
+    - name: Configure CMake
+      run: >
+        cmake 
+        -S ${{ github.workspace }}
+        -B ${{ github.workspace }}/${{ env.build-dir }} 
+        -GXcode 
+        -DCMAKE_BUILD_TYPE=${{ env.build_type }}
+        -DSMTG_ENABLE_VSTGUI_SUPPORT=ON
+        -DSMTG_ENABLE_VST3_PLUGIN_EXAMPLES=OFF
+        -DSMTG_ENABLE_VST3_HOSTING_EXAMPLES=OFF
+        -DGITHUB_ACTIONS=ON
 
     - name: Build
-      uses: ./.github/actions/cmake
-      with:
-        source-dir: '${{github.workspace}}'
-        build-dir: '${{github.workspace}}/${{env.build-dir}}'
-        build-type: '${{env.build-type}}'
+      run: xcodebuild
+      working-directory: ${{ github.workspace }}/${{ env.build-dir }} 
         
     - name: Upload VST
       uses: actions/upload-artifact@v4
       with:
-        name: VST-artifact
+        name: build-VST3-${{ matrix.os }}-${{ env.BUILD_TYPE }}
         path: build/VST3
