@@ -22,14 +22,6 @@ jobs:
       matrix:
         os: [windows-latest, macos-latest]
         build_type: [Release]
-        c_compiler: [clang, cl]
-        include:
-          - os: windows-latest
-            c_compiler: cl
-            cpp_compiler: cl
-        exclude:
-          - os: windows-latest
-            c_compiler: clang
 
     steps:
     - name: Base plugin Repo checkout
