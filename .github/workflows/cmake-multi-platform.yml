@@ -64,7 +64,12 @@ jobs:
         -DSMTG_ENABLE_VST3_HOSTING_EXAMPLES=OFF
         -DGITHUB_ACTIONS=ON
 
-    - name: Build
+    - name: Build - macOS
+      if: matrix.os == 'macos-latest'
+      run: xcodebuild
+
+    - name: Build - else
+      if: matrix.os != 'macos-latest'
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
