@@ -58,6 +58,7 @@ jobs:
         cmake 
         -S ${{ github.workspace }}
         -B ${{ steps.strings.outputs.build-output-dir }}
+        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DSMTG_ENABLE_VSTGUI_SUPPORT=ON
         -DSMTG_ENABLE_VST3_PLUGIN_EXAMPLES=OFF
         -DSMTG_ENABLE_VST3_HOSTING_EXAMPLES=OFF
