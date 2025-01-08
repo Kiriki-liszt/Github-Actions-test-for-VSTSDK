@@ -21,11 +21,10 @@ jobs:
       with:
         submodules: 'recursive'
         
-    - name: Custom VSTSDK Repo checkout
+    - name: VSTSDK Repo checkout
       uses: actions/checkout@v4
       with:
-        repository: Kiriki-liszt/vst3sdk
-        ref: 'v3.7.9_mod'
+        repository: steinbergmedia/vst3sdk
         path: "./vst3sdk" 
         submodules: 'recursive'
 
